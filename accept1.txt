@@ -1,0 +1,4 @@
+repeat
+  x := 5;
+  y := 6;
+until x = 8
