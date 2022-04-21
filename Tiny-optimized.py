@@ -1,5 +1,4 @@
 from manim import *
-from manim.opengl import *
 
 class State():
     def __init__(self, id, circle, state_text):
@@ -26,11 +25,14 @@ class Tiny(Scene):
             for cir in circles:
                 draw_state(cir)
 
-        def draw_arrow(edge): 
-            txt = Text(edge.transition).set_color(YELLOW)
-            txt.move_to(edge.arrow.get_midpoint()).scale(0.2).shift(0.1 * UP)
+        # def draw_rect(): 
+        #     rect = Rectangle(width=4, height=1, color=RED)
 
-            self.play(Create(VGroup(edge.arrow, txt)), run_time=0.005)
+        def draw_arrow(edge): 
+            # txt = Text(edge.transition).set_color(YELLOW)
+            # txt.move_to(edge.arrow.get_center()).scale(0.2)
+
+            self.add(VGroup(edge.arrow))
 
         def draw_arrows(arrows):
             for arrow in arrows:
@@ -104,6 +106,8 @@ class Tiny(Scene):
                 return ch != transition[1]
             elif transition[0] == '~':
                 return not eval(f'is_{transition[1:]}(ch)')
+            elif transition[0] == '~':
+                return not eval(f'is_{transition[1:]}(ch)')
             else:
                 is_equal_lt_gt(ch)
                 is_letter(ch)
@@ -115,6 +119,9 @@ class Tiny(Scene):
         def match(transition, ch):
             if transition == 'letter,num':
                 return is_letter_or_num(ch)
+            elif 'letter,num' in transition:
+                return is_letter_or_num(ch) and \
+                match(transition[0:transition.find(',letter,num')], ch)
             elif transition == '=,<,>':
                 return is_equal_lt_gt(ch)
             else:
@@ -129,7 +136,9 @@ class Tiny(Scene):
         states = read_states()
         edges  = dict()
         def play_animation(input_text):
+            rect = Rectangle(width=4, height=0.5, color=RED).shift(3.6 * UP)
             cur_state = 1
+            loop_index = 0
             for char in input_text[0:len(input_text)-1]:
                 next_transition = get_next_transition(edges[cur_state].keys(), char)
                 edge            = edges[cur_state][next_transition]
@@ -137,22 +146,28 @@ class Tiny(Scene):
                 orig_color_cir  = next_circle.color
                 orig_color_edg  = edge.arrow.color
                 print(repr(char), cur_state, next_transition, edge.state_v.state_text)
+                trans = Text(f"'{char}' : {next_transition}").shift(3.6 * UP).scale(0.4)
 
-                edge.arrow.set_color(GREEN)
-                next_circle.set_color(GREEN)
+                edge.arrow.set_color(PURE_RED)
+                next_circle.scale(1.3).set_fill(GREEN, opacity=1)
 
-                self.play(edge.arrow.animate, next_circle.animate, run_time=1)
+                # rect.surround(trans)
+                self.add(rect)
+                self.play(trans.animate,edge.arrow.animate, next_circle.animate, run_time=1)
 
-                edge.arrow.set_color(orig_color_edg)
-                next_circle.set_color(orig_color_cir)
+                if loop_index != len(input_text) - 2:
+                    edge.arrow.set_color(orig_color_edg)
+                    next_circle.set_color(orig_color_cir).scale(1/1.3).set_fill(PURE_GREEN, opacity=0)
+                    trans.set_fill(WHITE, opacity=0.0)
 
                 cur_state = edge.state_v.id
+
+                loop_index = loop_index + 1
                 
         draw_states(states)
         draw_arrows(read_arrows(states, edges))
 
-        print(is_letter('x'))
-        file_name = 'accept1.txt'
+        file_name = input("file name: ")
         with open(file_name, 'r') as file:
             data = file.read()
             print(repr(data))
