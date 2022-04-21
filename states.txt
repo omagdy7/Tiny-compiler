@@ -22,5 +22,6 @@
 22    0.2 BLUE   -6   -1 
 23    0.2 BLUE   -6   0
 24    0.2 BLUE   -6   1 
-25    0.2 GREEN  -6   2 
+25    0.2 BLUE   -6   2 
+25    0.15 BLUE   -6   2 
 ERROR 0.7 RED    -3   0 

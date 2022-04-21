@@ -14,7 +14,7 @@
 7  8  letter,~u            right  left   0
 7  15 u                    right  right -2
 7  27 ~letter,~ws          bottom top    0
-8  8  letter,num           left   top     3
+8  8  letter,num           left   top    -3
 8  9  space                bottom top    0
 8  27 ~letter,~num,~space  left   top    0
 9  9  space                right top     3
