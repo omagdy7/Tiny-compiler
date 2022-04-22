@@ -1,2 +1,4 @@
 repeat
-x
+new := old;
+old := 404;
+until mid < mid50

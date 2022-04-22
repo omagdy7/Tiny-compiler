@@ -21,24 +21,29 @@ def generate_tokens():
             if re.match(repeat, line):
                 l1 = re.findall(repeat, line)
                 for s in l1:
-                    label1 = Label(root,text=s + " : " + "reserved word")
+                    label1 = Label(root,text=s + " : " + "Reserved word")
+                    label1.config(font=("Ubuntu", 30))
                     label1.pack()
             if ":=" in line:
-                label2 = Label(root,text=":=" + " : " + "assignment operator")
+                label2 = Label(root,text=":=" + " : " + "Assignment operator")
+                label2.config(font=("Ubuntu", 30))
                 label2.pack()
             for c in line:
                 if c == ";":
-                    label3= Label(root,text=";" + " : " + "semi colon")
+                    label3= Label(root,text=";" + " : " + "Semi Colon")
+                    label3.config(font=("Ubuntu", 30))
                     label3.pack()
             if re.match(id, line):
                 l2 = re.findall(id, line)
                 for s in l2:
                     label4 = Label(root,text=s[0] + " : " + "ID")
+                    label4.config(font=("Ubuntu", 30))
                     label4.pack()
             if re.match(until, line):
                 l3 = re.findall(until, line)
                 for s in l3:
-                    label5 = Label(root,text=s + " : " + "reserved word")
+                    label5 = Label(root,text=s + " : " + "Reserved word")
+                    label5.config(font=("Ubuntu", 30))
                     label5.pack()
         
 def invoke_click():
