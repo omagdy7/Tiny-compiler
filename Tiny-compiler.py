@@ -1,4 +1,5 @@
 from manim import *
+import sys
 
 class State():
     def __init__(self, id, circle, state_text):
@@ -167,9 +168,9 @@ class Tiny(Scene):
         draw_states(states)
         draw_arrows(read_arrows(states, edges))
 
-        file_name = input("file name: ")
+        file_name = "input.txt"
         with open(file_name, 'r') as file:
             data = file.read()
-            print(repr(data))
+            # print(repr(data))
             play_animation(data)
 

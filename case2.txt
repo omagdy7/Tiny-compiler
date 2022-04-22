@@ -1,0 +1,4 @@
+repeat
+new := old; ;
+old := 404;
+until 50 < mid50

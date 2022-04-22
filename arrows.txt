@@ -25,11 +25,11 @@
 11 12 space                bottom top    0
 11 27 ~space               left   right  0
 12 12 space                right top     3
-12 13 num                  bottom top    0
-12 27 ~num,~space          left   right  0
-13 13 num                  right  top    3
+12 13 letter,num           bottom top    0
+12 27 ~num,~letter,~space  left   right  0
+13 13 letter,num                  right  top    3
 13 14 ;                    bottom top    0
-13 27 ~num,~;              bottom right  0
+13 27 ~letter,~num,~;              bottom right  0
 14 15 ws                   left   right  0
 14 27 ~ws                  left   right  0
 15 8  ~u,letter            bottom right  3.3
@@ -55,8 +55,8 @@
 20 21 space                top    bottom 0
 20 27 ~space               right  left   0
 21 21 space                left   top    -3
-21 22 letter               top    bottom 0
-21 27 ~letter,~space       right  left   0
+21 22 letter,num               top    bottom 0
+21 27 ~letter,~space,~num       right  left   0
 22 22 letter,num           left   top   -3
 22 23 space                top    bottom 0
 22 27 ~space,~letter,~num  right  left   0
@@ -65,6 +65,6 @@
 23 27 ~=,~<,~>,~space      right  left   0
 24 25 space                top    bottom 0
 24 27 ~space               right  left   0
-25 25 num                  bottom left  -3
-25 27 ~num                 right  left   0
+25 25 letter,num                  bottom left  -3
+25 27 ~num,~letter                 right  left   0
 27 27 any                  bottom left  -3
