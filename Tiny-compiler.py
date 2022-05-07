@@ -18,21 +18,12 @@ class Tiny(Scene):
         def draw_state(state):
             txt = Text(state.state_text).set_color(WHITE)
             txt.move_to(state.circle.get_center()).scale(0.3)
-
-            # self.play(Create(VGroup(state.circle, txt)), run_time=0.005)
             self.add(state.circle, txt)
 
         def draw_states(circles):
             for cir in circles:
                 draw_state(cir)
-
-        # def draw_rect(): 
-        #     rect = Rectangle(width=4, height=1, color=RED)
-
         def draw_arrow(edge): 
-            # txt = Text(edge.transition).set_color(YELLOW)
-            # txt.move_to(edge.arrow.get_center()).scale(0.2)
-
             self.add(VGroup(edge.arrow))
 
         def draw_arrows(arrows):
