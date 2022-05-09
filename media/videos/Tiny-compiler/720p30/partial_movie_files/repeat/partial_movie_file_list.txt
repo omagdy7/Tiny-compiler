@@ -1,6 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/peng/repos/Tiny-compiler/media/videos/Tiny-compiler/720p30/partial_movie_files/repeat/2096834954_572455617_223132457.mp4'
-file 'file:/home/peng/repos/Tiny-compiler/media/videos/Tiny-compiler/720p30/partial_movie_files/repeat/4144914278_1971599776_1702105749.mp4'
-file 'file:/home/peng/repos/Tiny-compiler/media/videos/Tiny-compiler/720p30/partial_movie_files/repeat/4144914278_1822082211_289880238.mp4'
-file 'file:/home/peng/repos/Tiny-compiler/media/videos/Tiny-compiler/720p30/partial_movie_files/repeat/4144914278_2088554786_219362708.mp4'
-file 'file:/home/peng/repos/Tiny-compiler/media/videos/Tiny-compiler/720p30/partial_movie_files/repeat/4144914278_305632222_2918738561.mp4'
